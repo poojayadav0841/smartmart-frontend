@@ -1,31 +1,37 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  Inject,
+  PLATFORM_ID,
+} from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
-import { SmartmartComponent } from '../smartmart/smartmart.component';
+// import { SmartmartComponent } from '../smartmart/smartmart.component';
 import { PopualarProductComponent } from '../popualar-product/popualar-product.component';
 import { DiscountFeatureComponent } from '../discount-feature/discount-feature.component';
 import { AppdemoComponent } from '../appdemo/appdemo.component';
 import { FeatureCardComponent } from '../feature-card/feature-card.component';
-import {  RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-main',
   standalone: true,
   imports: [
     CommonModule,
-    SmartmartComponent,
+    // SmartmartComponent,
     PopualarProductComponent,
     DiscountFeatureComponent,
     AppdemoComponent,
     FeatureCardComponent,
-    RouterOutlet
+    RouterOutlet,
   ],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
+  styleUrl: './main.component.css',
 })
 export class MainComponent implements AfterViewInit {
-
   @ViewChild('swiperContainer', { static: false }) swiperContainer!: ElementRef;
   @ViewChild('prevBtn', { static: false }) prevBtn!: ElementRef;
   @ViewChild('nextBtn', { static: false }) nextBtn!: ElementRef;
@@ -36,7 +42,8 @@ export class MainComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
-      setTimeout(() => { // Ensures elements are available
+      setTimeout(() => {
+        // Ensures elements are available
         this.swiper = new Swiper(this.swiperContainer.nativeElement, {
           modules: [Navigation],
           slidesPerView: 'auto',
@@ -44,8 +51,8 @@ export class MainComponent implements AfterViewInit {
           loop: true,
           navigation: {
             nextEl: this.nextBtn.nativeElement,
-            prevEl: this.prevBtn.nativeElement
-          }
+            prevEl: this.prevBtn.nativeElement,
+          },
         });
 
         // Ensure navigation buttons work
@@ -56,7 +63,6 @@ export class MainComponent implements AfterViewInit {
         this.nextBtn.nativeElement.addEventListener('click', () => {
           this.swiper.slideNext();
         });
-
       }, 500); // Small delay to ensure the elements exist
     }
   }
