@@ -1,0 +1,19 @@
+{
+  "routes": {
+    "/smartmart-frontend": {},
+    "/smartmart-frontend/addNewProduct": {},
+    "/smartmart-frontend/admin": {},
+    "/smartmart-frontend/buyProduct": {},
+    "/smartmart-frontend/cart": {},
+    "/smartmart-frontend/forbidden": {},
+    "/smartmart-frontend/home": {},
+    "/smartmart-frontend/login": {},
+    "/smartmart-frontend/myOrders": {},
+    "/smartmart-frontend/orderComfirm": {},
+    "/smartmart-frontend/orderInformation": {},
+    "/smartmart-frontend/productViewDetails": {},
+    "/smartmart-frontend/showProductDetails": {},
+    "/smartmart-frontend/signup": {},
+    "/smartmart-frontend/user": {}
+  }
+}
