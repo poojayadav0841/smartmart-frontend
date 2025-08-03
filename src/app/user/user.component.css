@@ -1,0 +1,62 @@
+.message-card {
+  background: linear-gradient(to right, #e0f7ff, #ffffff);
+  border: 2px solid #007bff;
+  border-radius: 16px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 24px rgba(0, 123, 255, 0.25);
+  color: #004085;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.message-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 123, 255, 0.35);
+}
+
+.message-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.message-content {
+  font-size: 1.5rem;
+  color: #055160;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .message-title {
+    font-size: 1.6rem;
+  }
+
+  .message-content {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-title {
+    font-size: 1.3rem;
+  }
+
+  .message-content {
+    font-size: 1rem;
+  }
+
+  .message-card {
+    padding: 20px 15px;
+    animation: fadeInUp 0.6s ease-in-out;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,36 @@
+section {
+  width: calc(100% - 10px); /* Full width minus 5px margin on both sides */
+  margin: 5px; /* 5px margin from all sides */
+  padding: 5px; /* 5px padding inside */
+  /* background-color: #f8f9fa; Light background for visibility */
+  border-radius: 5px; /* Optional: Adds a slight curve for aesthetics */
+}
+
+.card {
+  width: calc(100% + 6px); /* Increases width by 2px */
+  height: calc(100% + 6px); /* Increases height by 2px */
+}
+
+.btn{
+  background-color: rgb(214, 211, 211) !important;
+}
+
+.container-lg {
+  max-width: 100% !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
+.row {
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+}
+
+.col {
+  padding-left: 13px !important;
+  padding-right: 13px !important;
+}
+
+.card {
+  width: 100% !important;
+}

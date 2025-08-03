@@ -1,0 +1,119 @@
+<nav class="navbar navbar-expand-lg bg-body">
+  <div class="container-fluid">
+    <img
+      src="images/smartmart.png"
+      alt="SmartMart"
+      class="navbar-brand"
+      style="width: 50px; height: 50px"
+    />
+    <a class="navbar-brand" href="#" style="font-size: 1.8rem"
+      ><b>SmartMart</b></a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      #navbarCollapse
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+      *ngIf="isLoggedIn()"
+    >
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item mt-2">
+          <a
+            routerLink="/home"
+            routerLinkActive="router-link-active"
+            style="text-decoration: none"
+            >HOME</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isAdmin()" class="nav-link" routerLink="/addNewProduct"
+            >ADD NEW PRODUCT</a
+          >
+        </li>
+        <li class="nav-item">
+          <a *ngIf="isAdmin()" class="nav-link" routerLink="/showProductDetails"
+            >SHOW PRODUCT DETAILS</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/admin"
+            *ngIf="userService.roleMatch(['Admin'])"
+            >ADMIN DASHBOARD</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/user"
+            *ngIf="userService.roleMatch(['User'])"
+            >USER DASHBOARD</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/myOrders"
+            *ngIf="userService.roleMatch(['User'])"
+            >MY ORDERS</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/orderInformation"
+            *ngIf="userService.roleMatch(['Admin'])"
+            >ORDER INFORMATION</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="signup-btn btn">
+    <a routerLink="/signup"
+      ><button class="btn btn-warning d-inline-flex align-items-center">
+        Signup <i class="fa-solid fa-circle-user ms-2"></i></button
+    ></a>
+  </div>
+  <div class="login-btn btn">
+    <a routerLink="/login"
+      ><button
+        *ngIf="!isLoggedIn()"
+        class="btn btn-warning d-inline-flex align-items-center"
+      >
+        Login <i class="fa-solid fa-user ms-2"></i></button
+    ></a>
+  </div>
+  <div class="login-btn btn">
+    <a routerLink="/logout"
+      ><button
+        *ngIf="isLoggedIn()"
+        class="btn btn-warning d-inline-flex align-items-center"
+        (click)="logout()"
+      >
+        Logout <i class="fa-solid fa-user ms-2"></i></button
+    ></a>
+  </div>
+  <div class="cart btn">
+    <a routerLink="/cart"
+      ><button
+        *ngIf="!isAdmin()"
+        class="btn btn-primary d-inline-flex align-items-center"
+      >
+        Cart <i class="fa-solid fa-cart-shopping ms-2"></i></button
+    ></a>
+  </div>
+</nav>

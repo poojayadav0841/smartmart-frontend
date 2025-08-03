@@ -1,0 +1,36 @@
+#navbarSupportedContent {
+  font-size: 1rem !important;
+  font-weight: 550 !important;
+  color: black !important;
+  opacity: 0.75 !important;
+}
+
+#navbarSupportedContent::hover {
+  opacity: 1 !important;
+}
+
+.container-fluid {
+  justify-content: flex-start !important;
+  /* width: 5rem; */
+}
+
+.nav-item {
+  margin-left: 0.5rem;
+}
+
+.signup-btn {
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.amber-toolbar {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.navbar-toggler {
+  margin-left: 4rem;
+}

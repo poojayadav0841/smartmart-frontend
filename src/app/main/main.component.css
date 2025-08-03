@@ -1,0 +1,32 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+
+
+.card{
+  background-color: rgb(1, 20, 1);
+}
+
+.truckIcon{
+  background-color: #ff5100;
+}
+
+.swiper-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex; /* Ensures horizontal alignment */
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  width: auto; /* Adjust width based on content */
+}
+
+.carousel-inner img{
+  height: 15rem;
+  width: 15rem;
+  border-radius: 50%;
+
+}

@@ -1,0 +1,129 @@
+/* SALE BANNER MAIN */
+.banner-ad-sale {
+  height: 70vh;
+}
+
+/* SIDE BANNER (two stacked blocks) */
+.banner-ad-offer {
+  height: 30vh;
+}
+
+/* COMMON STYLING */
+.banner-ad-sale,
+.banner-ad-offer {
+  min-height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.banner-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.content-wrapper {
+  background: rgba(
+    0,
+    0,
+    0,
+    0.4
+  ); /* Optional overlay for better text readability */
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.banner-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.btn-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  text-decoration: underline;
+  color: white;
+}
+
+/* LARGE DEVICES (desktops) */
+@media (min-width: 993px) {
+  .banner-ad-sale {
+    height: 70vh;
+  }
+
+  .banner-ad-offer {
+    height: 30vh;
+  }
+}
+
+/* MEDIUM DEVICES (tablets) */
+@media (max-width: 992px) {
+  .banner-title {
+    font-size: 1.5rem;
+  }
+
+  .content-wrapper {
+    padding: 12px;
+  }
+
+  .btn-link {
+    font-size: 0.95rem;
+  }
+
+  .banner-ad-sale {
+    height: 60vh;
+  }
+
+  .banner-ad-offer {
+    height: 25vh;
+  }
+}
+
+/* SMALL DEVICES (mobiles) */
+@media (max-width: 768px) {
+  .row > div.col-7,
+  .row > div.col-5 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .banner-ad-sale,
+  .banner-ad-offer {
+    height: auto;
+    min-height: 240px;
+    margin-bottom: 20px;
+  }
+
+  .banner-title {
+    font-size: 1.4rem;
+  }
+
+  .banner-content {
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .btn-link {
+    font-size: 0.9rem;
+  }
+}
+
+/* EXTRA SMALL DEVICES (older phones) */
+@media (max-width: 480px) {
+  .banner-title {
+    font-size: 1.2rem;
+  }
+
+  .content-wrapper {
+    padding: 12px;
+  }
+
+  .btn-link {
+    font-size: 0.85rem;
+  }
+}

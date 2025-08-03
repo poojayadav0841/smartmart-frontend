@@ -1,0 +1,8 @@
+footer {
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box; /* Includes padding and border in the width */
+  background-color: #011401;
+  color: white;
+}
+

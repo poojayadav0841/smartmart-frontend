@@ -1,0 +1,140 @@
+<router-outlet></router-outlet>
+<div class="container mt-5 mb-5">
+  <div class="card p-3">
+    <div class="row g-4">
+      <!-- Form section -->
+      <div class="col-12 col-md-6">
+        <form
+          #orderForm="ngForm"
+          (ngSubmit)="createTransactionAndPlaceOrder(orderForm)"
+          novalidate
+        >
+          <!-- Full Name (Required) -->
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Full name</mat-label>
+            <input
+              matInput
+              placeholder="Full name"
+              class="w-100"
+              [(ngModel)]="orderDetails.fullName"
+              name="fullName"
+              required
+              #fullName="ngModel"
+            />
+            <mat-error *ngIf="fullName.invalid && fullName.touched">
+              Full name is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Full Address (Required) -->
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Full address</mat-label>
+            <input
+              matInput
+              placeholder="Full address"
+              class="w-100"
+              [(ngModel)]="orderDetails.fullAddress"
+              name="fullAddress"
+              required
+              #fullAddress="ngModel"
+            />
+            <mat-error *ngIf="fullAddress.invalid && fullAddress.touched">
+              Address is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Contact Number (Required) -->
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Contact number</mat-label>
+            <input
+              matInput
+              placeholder="Contact number"
+              class="w-100"
+              [(ngModel)]="orderDetails.contactNumber"
+              name="contactNumber"
+              required
+              #contactNumber="ngModel"
+            />
+            <mat-error *ngIf="contactNumber.invalid && contactNumber.touched">
+              Contact number is required
+            </mat-error>
+          </mat-form-field>
+
+          <!-- Alternate Contact (Optional) -->
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Alternate contact number</mat-label>
+            <input
+              matInput
+              placeholder="Alternate contact number"
+              class="w-100"
+              [(ngModel)]="orderDetails.alternateContactNumber"
+              name="alternateContactNumber"
+            />
+          </mat-form-field>
+
+          <!-- Submit Button -->
+          <div class="text-end">
+            <button
+              type="submit"
+              class="btn btn-primary rounded-pill px-3 py-2"
+              [disabled]="orderForm.invalid"
+            >
+              Place Order
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Product table -->
+      <div class="col-12 col-md-6">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead class="table-light">
+              <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Quantity</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let product of productDetails">
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productDiscountedPrice }}</td>
+                <td>
+                  <select
+                    #quantity
+                    class="form-select"
+                    [ngModel]="getQuantityForProduct(product.productId)"
+                    (change)="
+                      onQuantityChange(quantity.value, product.productId)
+                    "
+                  >
+                    <option *ngFor="let q of [1, 2, 3, 4, 5]" [value]="q">
+                      {{ q }}
+                    </option>
+                  </select>
+                </td>
+                <td>
+                  {{
+                    getCalculatedTotal(
+                      product.productId,
+                      product.productDiscountedPrice
+                    )
+                  }}
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2"></td>
+                <td><strong>Total</strong></td>
+                <td>
+                  <strong>{{ getCalculatedGrandTotal() }}</strong>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

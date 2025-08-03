@@ -1,0 +1,98 @@
+<div class="container">
+  <h2>Signup Form</h2>
+  <form #registerForm="ngForm" (ngSubmit)="register(registerForm)" novalidate>
+    <div class="form-group">
+      <!-- Username -->
+      <label for="userName">Username</label>
+      <input
+        type="text"
+        name="userName"
+        ngModel
+        #userName="ngModel"
+        id="userName"
+        required
+        class="form-control"
+        [class.is-invalid]="userName.invalid && userName.touched"
+      />
+      <div *ngIf="userName.invalid && userName.touched" class="text-danger">
+        Username is required
+      </div>
+
+      <!-- Firstname -->
+      <label for="userFirstName">Firstname</label>
+      <input
+        type="text"
+        name="userFirstName"
+        ngModel
+        #userFirstName="ngModel"
+        id="userFirstName"
+        required
+        class="form-control"
+        [class.is-invalid]="userFirstName.invalid && userFirstName.touched"
+      />
+      <div
+        *ngIf="userFirstName.invalid && userFirstName.touched"
+        class="text-danger"
+      >
+        First name is required
+      </div>
+
+      <!-- Lastname -->
+      <label for="userLastName">Lastname</label>
+      <input
+        type="text"
+        name="userLastName"
+        ngModel
+        #userLastName="ngModel"
+        id="userLastName"
+        required
+        class="form-control"
+        [class.is-invalid]="userLastName.invalid && userLastName.touched"
+      />
+      <div
+        *ngIf="userLastName.invalid && userLastName.touched"
+        class="text-danger"
+      >
+        Last name is required
+      </div>
+
+      <!-- Password -->
+      <label for="userPassword">Password</label>
+      <input
+        type="password"
+        name="userPassword"
+        ngModel
+        #userPassword="ngModel"
+        id="userPassword"
+        required
+        class="form-control"
+        [class.is-invalid]="userPassword.invalid && userPassword.touched"
+      />
+      <div
+        *ngIf="userPassword.invalid && userPassword.touched"
+        class="text-danger"
+      >
+        Password is required
+      </div>
+
+      <!-- Login Link -->
+      <div>
+        <h5 class="mt-3 text-center">
+          Already have an account?
+          <a [routerLink]="['/login']" routerLinkActive="router-link-active"
+            >Login</a
+          >
+        </h5>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        class="btn btn-primary mt-3 mb-3 text-center"
+        [disabled]="registerForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

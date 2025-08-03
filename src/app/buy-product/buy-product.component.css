@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  mat-form-field {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

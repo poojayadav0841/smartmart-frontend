@@ -1,0 +1,39 @@
+.dotted-border-3d {
+    position: relative;
+    padding: 5px;
+    border-radius: 1.25rem;
+    background: transparent;
+    z-index: 1;
+  }
+
+  .dotted-border-3d::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px dotted transparent;
+    border-image: linear-gradient(135deg, #00ffcc, #33ccff, #ff99cc, #00ffcc);
+    border-image-slice: 1;
+    border-radius: 1.25rem;
+    z-index: -1;
+    animation: moveBorder 4s linear infinite;
+    background: transparent;
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.2),
+                0 0 30px rgba(255, 153, 204, 0.15);
+  }
+
+  @keyframes moveBorder {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    50% {
+      transform: translate(2px, 2px);
+    }
+    100% {
+      transform: translate(0px, 0px);
+    }
+  }
+
+  .glow-card {
+    border-radius: 1rem;
+    background: linear-gradient(to right, #f9f9f9, #e3f2fd);
+  }

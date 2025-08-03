@@ -1,0 +1,87 @@
+/* Outer wrapper for scroll on small screens */
+.custom-mat-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Base table style */
+.custom-mat-table {
+  width: 100%;
+  min-width: 600px; /* prevent squishing on large screens */
+  border: 2px solid #080808;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.25);
+  background: linear-gradient(to right, #f0faff, #ffffff);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+}
+
+/* Header and cell styling */
+.custom-mat-table th.mat-header-cell,
+.custom-mat-table td.mat-cell {
+  border: 1px solid #007bff;
+  padding: 16px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Sticky header */
+.custom-mat-table th.mat-header-cell {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* Body cells */
+.custom-mat-table td.mat-cell {
+  background-color: #e9f3ff;
+}
+
+/* Row hover */
+.custom-mat-table tr.mat-row:hover td.mat-cell {
+  background-color: #4494eb;
+  box-shadow: inset 0 0 10px rgba(0, 123, 255, 0.3);
+  cursor: pointer;
+}
+
+/* Column hover */
+.custom-mat-table td.mat-cell:hover {
+  background-color: #6cbef8;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .custom-mat-table {
+    font-size: 0.95rem;
+  }
+
+  .custom-mat-table th.mat-header-cell,
+  .custom-mat-table td.mat-cell {
+    padding: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .custom-mat-table {
+    font-size: 0.85rem;
+  }
+
+  .custom-mat-table th.mat-header-cell,
+  .custom-mat-table td.mat-cell {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-mat-table {
+    font-size: 0.8rem;
+  }
+
+  .custom-mat-table th.mat-header-cell,
+  .custom-mat-table td.mat-cell {
+    padding: 8px;
+  }
+}
