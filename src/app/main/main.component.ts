@@ -9,24 +9,26 @@ import {
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
-// import { SmartmartComponent } from '../smartmart/smartmart.component';
+import { SmartmartComponent } from '../smartmart/smartmart.component';
 import { PopualarProductComponent } from '../popualar-product/popualar-product.component';
 import { DiscountFeatureComponent } from '../discount-feature/discount-feature.component';
 import { AppdemoComponent } from '../appdemo/appdemo.component';
 import { FeatureCardComponent } from '../feature-card/feature-card.component';
 import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-main',
   standalone: true,
   imports: [
     CommonModule,
-    // SmartmartComponent,
+    SmartmartComponent,
     PopualarProductComponent,
     DiscountFeatureComponent,
     AppdemoComponent,
     FeatureCardComponent,
     RouterOutlet,
+    RouterModule,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
