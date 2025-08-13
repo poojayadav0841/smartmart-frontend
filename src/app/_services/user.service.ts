@@ -6,7 +6,7 @@ import { UserAuthService } from './user-auth.service';
   providedIn: 'root',
 })
 export class UserService {
-  PATH_OF_API = 'http://localhost:8080';
+  PATH_OF_API = 'https://smartmart-backend.onrender.com';
 
   requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
 
