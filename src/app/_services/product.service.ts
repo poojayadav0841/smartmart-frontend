@@ -5,6 +5,8 @@ import { HttpHeaders } from '@angular/common/http';
 import { OrderDetails } from '../_model/order-details.model';
 import { MyOrderDetails } from '../_model/order.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -19,7 +21,7 @@ export class ProductService {
     });
 
     return this.httpClient.get(
-      `http://localhost:9090/createTransaction/` + amount,
+      `${environment.apiBaseUrl}/createTransaction/` + amount,
       {
         headers,
       }
@@ -34,7 +36,7 @@ export class ProductService {
     });
 
     return this.httpClient.get(
-      `http://localhost:9090/markOrderAsDelivered/` + orderId,
+      `${environment.apiBaseUrl}/markOrderAsDelivered/` + orderId,
       {
         headers,
       }
@@ -51,7 +53,7 @@ export class ProductService {
     });
 
     return this.httpClient.get<MyOrderDetails[]>(
-      `http://localhost:9090/getAllOrderDetails/` + status,
+      `${environment.apiBaseUrl}/getAllOrderDetails/` + status,
       {
         headers,
       }
@@ -66,7 +68,7 @@ export class ProductService {
     });
 
     return this.httpClient.get<MyOrderDetails[]>(
-      `http://localhost:9090/getOrderDetails`,
+      `${environment.apiBaseUrl}/getOrderDetails`,
       {
         headers,
       }
@@ -81,7 +83,7 @@ export class ProductService {
     });
 
     return this.httpClient.delete(
-      `http://localhost:9090/deleteCartItem/` + cartId,
+      `${environment.apiBaseUrl}/deleteCartItem/` + cartId,
       { headers }
     );
   }
@@ -95,7 +97,7 @@ export class ProductService {
     }
 
     return this.httpClient.post<Product>(
-      'http://localhost:9090/addNewProduct',
+      `${environment.apiBaseUrl}/addNewProduct`,
       product,
       { headers }
     );
@@ -103,7 +105,7 @@ export class ProductService {
 
   public getAllProducts(pageNumber: number, searchKeyword: string = '') {
     return this.httpClient.get<Product[]>(
-      'http://localhost:9090/getAllProducts?pageNumber=' +
+      `${environment.apiBaseUrl}/getAllProducts?pageNumber=` +
         pageNumber +
         '&searchKey=' +
         searchKeyword
@@ -112,7 +114,7 @@ export class ProductService {
 
   public getProductDetailsById(productId: any) {
     return this.httpClient.get<Product>(
-      `http://localhost:9090/getProductDetailsById/${productId}`
+      `${environment.apiBaseUrl}/getProductDetailsById/${productId}`
     );
   }
 
@@ -124,7 +126,7 @@ export class ProductService {
     });
 
     return this.httpClient.delete(
-      `http://localhost:9090/deleteProductDetails/${productId}`,
+      `${environment.apiBaseUrl}/deleteProductDetails/${productId}`,
       { headers }
     );
   }
@@ -136,7 +138,7 @@ export class ProductService {
       Authorization: `Bearer ${token}`,
     });
     return this.httpClient.get<Product[]>(
-      `http://localhost:9090/getProductDetails/${isSingleProductCheckout}/${productId}`,
+      `${environment.apiBaseUrl}/getProductDetails/${isSingleProductCheckout}/${productId}`,
       { headers }
     );
   }
@@ -148,7 +150,7 @@ export class ProductService {
       Authorization: `Bearer ${token}`,
     });
     return this.httpClient.post(
-      'http://localhost:9090/placeOrder/' + isCartCheckout,
+      `${environment.apiBaseUrl}/placeOrder/` + isCartCheckout,
       orderDetails,
       { headers }
     );
@@ -158,16 +160,19 @@ export class ProductService {
     const token = localStorage.getItem('jwtToken'); // Or wherever you store it
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.httpClient.get(`http://localhost:9090/addToCart/${productId}`, {
-      headers,
-    });
+    return this.httpClient.get(
+      `${environment.apiBaseUrl}/addToCart/${productId}`,
+      {
+        headers,
+      }
+    );
   }
 
   public getCartDetails() {
     const token = localStorage.getItem('jwtToken'); // Or wherever you store it
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.httpClient.get(`http://localhost:9090/getCartDetails`, {
+    return this.httpClient.get(`${environment.apiBaseUrl}/getCartDetails`, {
       headers,
     });
   }
